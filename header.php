@@ -12,7 +12,7 @@
     <!-- Google fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com/">
     <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400;1,500;1,600;1,700;1,800&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400;1,500;1,600;1,700;1,800&display=swap" rel="stylesheet">
 
     <!-- Main CSS -->
     <link rel="stylesheet" href="assets/css/swiper-bundle.min.css">
@@ -21,6 +21,14 @@
     <link rel="stylesheet" href="assets/css/magnific-popup.css">
     <link rel="stylesheet" href="assets/css/style.css">
     <link rel="stylesheet" href="assets/css/responsive-fixes.css">
+
+    <style>
+        /* Active nav link highlight */
+        .navbar-nav .nav-link.nav-active {
+            color: #b08a3e !important;
+            font-weight: 700;
+        }
+    </style>
 </head>
 
 <body>
@@ -42,7 +50,6 @@
 
                     <div class="d-flex align-items-center">
                         <a class="navbar-brand py-0" href="index.php">
-                            <!-- Logo - replaced SVG with image -->
                             <span class="logo logo-primary">
                                 <img src="assets/images/logo1.png" alt="Vande Enterprises Logo" width="219">
                             </span>
@@ -50,7 +57,6 @@
                                 <img src="assets/images/logo1.png" alt="Vande Enterprises Logo" width="219">
                             </span>
                         </a>
-
                     </div>
 
                     <a href="javascript:void(0)" class="toggler-icon text-decoration-none d-block d-xl-none" data-bs-toggle="offcanvas" data-bs-target="#architronixNavbar" aria-controls="architronixNavbar" aria-label="Toggle navigation">
@@ -60,11 +66,11 @@
                             <line x1="21.5" y1="21.5" x2="38.5" y2="21.5" stroke-width="3" stroke-linecap="round" />
                         </svg>
                     </a>
+
                     <div class="offcanvas offcanvas-end" data-bs-backdrop="static" tabindex="-1" id="architronixNavbar" aria-labelledby="architronixNavbarLabel">
                         <div class="offcanvas-header">
                             <span class="offcanvas-title" id="architronixNavbarLabel">
                                 <span class="logo">
-                                    <!-- Offcanvas logo - replaced SVG with image -->
                                     <img src="assets/images/logo1.png" alt="Vande Enterprises Logo" width="219">
                                 </span>
                             </span>
@@ -74,12 +80,8 @@
                             <ul class="navbar-nav justify-content-end flex-grow-1 align-items-xl-center">
                                 <li class="nav-item"><a class="nav-link" href="index.php">Home</a></li>
                                 <li class="nav-item"><a class="nav-link" href="about.php">About</a></li>
-
-
-
-                                <li class="nav-item"><a class="nav-link" href="index.php#services">Services</a></li>
+                                <li class="nav-item"><a class="nav-link" href="services.php">Services</a></li>
                                 <li class="nav-item"><a class="nav-link" href="gallery.php">Gallery</a></li>
-
                                 <li class="nav-item"><a class="nav-link" href="contact.php">Contact</a></li>
                                 <li class="nav-item">
                                     <div class="d-flex gap-4 align-items-center">
@@ -95,11 +97,8 @@
                                                 </defs>
                                             </svg>
                                         </a>
-
                                     </div>
                                 </li>
-
-
                             </ul>
                         </div>
                     </div>
@@ -144,3 +143,17 @@
                 </div>
             </div>
         </div>
+
+        <!-- Auto Active Nav Link Script -->
+        <script>
+            document.addEventListener('DOMContentLoaded', function () {
+                var currentPage = window.location.pathname.split('/').pop() || 'index.php';
+                var navLinks = document.querySelectorAll('.navbar-nav .nav-link');
+                navLinks.forEach(function (link) {
+                    var href = link.getAttribute('href');
+                    if (href && href !== '#' && currentPage === href) {
+                        link.classList.add('nav-active');
+                    }
+                });
+            });
+        </script>
