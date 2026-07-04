@@ -391,7 +391,7 @@ textarea.cv-input { resize:vertical; min-height:138px; }
         <h1>Contact Us</h1>
         <p>Have a project in mind? We'd love to hear from you — let's build something great together.</p>
     </div>
-</div>
+</div>    
 
 <!-- BREADCRUMB ══════════════════════════════════════════════════ -->
 <div class="breadcrumb-strip">
