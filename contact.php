@@ -385,7 +385,7 @@ textarea.cv-input { resize:vertical; min-height:138px; }
     <div class="ch-overlay"></div>
     <picture>
         <source media="(max-width:530px)" srcset="assets/images/blog-single-image-sm.jpg">
-        <img src="assets/images/blog-single-image.jpg" alt="Contact Vande Enterprises">
+        <img src="assets/images/img4.jpg" alt="Contact Vande Enterprises">
     </picture>
     <div class="container ch-text">
         <h1>Contact Us</h1>

@@ -39,16 +39,62 @@
     .btn-outline-light:hover{background:rgba(255,255,255,0.14);border-color:rgba(255,255,255,0.50);transform:translateY(-4px);color:#fff;}
 
     /* ── Hero ── */
-    .hero-section{
-        position:relative;
-        min-height:100vh;
-        min-height:100dvh; /* fixes mobile address-bar jump */
-        display:flex;
-        align-items:center;
-        overflow:hidden;
-        background:var(--teal-dark);
-    }
+ 
     .hero-video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:0;}
+    .hero {
+    width: 100%;
+    height: 100vh; /* or your preferred height */
+    overflow: hidden;
+}
+
+/* ── Hero ── */
+.hero-section{
+    position:relative;
+    width:100%;
+    min-height:100vh;
+    min-height:100dvh; /* fixes mobile address-bar jump */
+    display:flex;
+    align-items:center;
+    overflow:hidden;
+    background:var(--teal-dark);
+}
+
+.hero-bg-image{
+    position:absolute;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    min-height:100vh;
+    min-height:100dvh;
+    object-fit:cover;
+    object-position:center center;
+    z-index:0;
+    display:block;
+}
+
+/* ── Responsive height tuning ── */
+@media(max-width:991px){
+    .hero-section,.hero-bg-image{
+        min-height:90vh;
+        min-height:90dvh;
+    }
+}
+
+@media(max-width:767px){
+    .hero-section,.hero-bg-image{
+        min-height:100vh;
+        min-height:100dvh;
+    }
+}
+
+@media(max-height:600px) and (orientation:landscape){
+    .hero-section,.hero-bg-image{
+        min-height:auto;
+        height:100vh;
+    }
+}
+
     .hero-overlay{position:absolute;inset:0;z-index:1;background:linear-gradient(145deg,rgba(11,20,20,0.88) 0%,rgba(11,20,20,0.50) 50%,rgba(11,20,20,0.25) 100%);pointer-events:none;}
     .hero-overlay::after{content:"";position:absolute;bottom:0;left:0;width:100%;height:4px;background:linear-gradient(90deg,var(--gold),var(--gold-light),#f5e6b0,var(--gold-light),var(--gold));background-size:300% 100%;animation:goldShimmer 5s linear infinite;}
     @keyframes goldShimmer{0%{background-position:0% 0%;}100%{background-position:300% 0%;}}
@@ -323,10 +369,9 @@
 </style>
 
 <!-- ══ HERO ══════════════════════════════════════════════════════ -->
+<!-- ══ HERO ══════════════════════════════════════════════════════ -->
 <section class="hero-section">
-    <video class="hero-video" muted loop autoplay playsinline>
-        <source src="assets/videos/video-3.mp4" type="video/mp4">
-    </video>
+     <img src="assets/images/images-5.png" alt="Hero Image" class="hero-bg-image">
     <div class="hero-overlay"></div>
     <div class="hero-glow hero-glow--1"></div>
     <div class="hero-glow hero-glow--2"></div>

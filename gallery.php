@@ -509,7 +509,7 @@
     <picture>
         <source media="(max-width: 530px)" srcset="assets/images/blog-single-image-sm.jpg">
         <source media="(max-width: 992px)" srcset="assets/images/blog-single-image.jpg">
-        <img src="assets/images/blog-single-image.jpg" alt="Vande Enterprises Gallery" loading="lazy">
+        <img src="assets/images/img3.jpg" alt="Vande Enterprises Gallery" loading="lazy">
     </picture>
     <div class="hero-text">
         <h1>Our Gallery</h1>

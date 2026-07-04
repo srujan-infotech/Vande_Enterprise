@@ -239,7 +239,7 @@
     <div class="overlay"></div>
     <picture>
         <source media="(max-width:530px)" srcset="assets/images/blog-single-image-sm.jpg">
-        <img src="assets/images/blog-single-image.jpg" alt="Vande Enterprises Services">
+        <img src="assets/images/img-2.jpg" alt="Vande Enterprises Services">
     </picture>
     <div class="container services-hero-text">
         <h1>Our Services</h1>
