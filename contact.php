@@ -227,6 +227,7 @@ textarea.cv-input { resize:vertical; min-height:138px; }
     transform:translateY(-3px);
     box-shadow:0 12px 30px rgba(176,138,62,.35);
 }
+.btn-send:disabled { opacity:.65; cursor:not-allowed; transform:none; }
 .btn-send i { transition:transform .3s; }
 .btn-send:hover i { transform:translateX(5px); }
 .form-response { margin-top:14px; font-size:.9rem; font-weight:600; }
@@ -507,8 +508,8 @@ textarea.cv-input { resize:vertical; min-height:138px; }
                             </div>
 
                             <div class="col-12 mt-2">
-                                <button type="submit" class="btn-send">
-                                    Send Message
+                                <button type="submit" class="btn-send" id="sendBtn">
+                                    <span class="btn-send-label">Send Message</span>
                                     <i class="fa-solid fa-arrow-right"></i>
                                 </button>
                             </div>
@@ -588,14 +589,19 @@ textarea.cv-input { resize:vertical; min-height:138px; }
     </div>
 </section>
 
+<!-- ==================== UPDATED SCRIPT – FIXES & DEBUGGING ==================== -->
 <script>
 document.addEventListener('DOMContentLoaded', function () {
-    /* Scroll reveal */
+
+    // ---------- 1. Scroll Reveal (Intersection Observer) ----------
     var els = document.querySelectorAll('.rv');
     if ('IntersectionObserver' in window) {
         var io = new IntersectionObserver(function(entries){
             entries.forEach(function(e){
-                if (e.isIntersecting){ e.target.classList.add('in-view'); io.unobserve(e.target); }
+                if (e.isIntersecting){ 
+                    e.target.classList.add('in-view'); 
+                    io.unobserve(e.target); 
+                }
             });
         }, {threshold: 0.12});
         els.forEach(function(el){ io.observe(el); });
@@ -603,20 +609,89 @@ document.addEventListener('DOMContentLoaded', function () {
         els.forEach(function(el){ el.classList.add('in-view'); });
     }
 
-    /* Form submit */
+    // ---------- 2. Form Submission with proper error handling ----------
     var form = document.getElementById('contactForm');
     var resp = form.querySelector('.form-response');
+    var btn  = document.getElementById('sendBtn');
+    var btnLabel = btn.querySelector('.btn-send-label');
+
     if (form) {
         form.addEventListener('submit', function(e){
             e.preventDefault();
+            e.stopPropagation();   // Prevents the jQuery handler from running
+
+            // Gather required fields
             var name  = document.getElementById('cName').value.trim();
             var email = document.getElementById('cEmail').value.trim();
+
+            // Basic client-side validation
             if (!name || !email) {
                 resp.innerHTML = '<span style="color:#c0392b;"><i class="fa-solid fa-circle-exclamation"></i> Please fill in all required fields.</span>';
                 return;
             }
-            resp.innerHTML = '<span style="color:#164243;"><i class="fa-solid fa-circle-check"></i> Thank you, <strong>' + name + '</strong>! We\'ll get back to you shortly.</span>';
-            form.reset();
+
+            // Disable button and show sending state
+            btn.disabled = true;
+            btnLabel.textContent = 'Sending...';
+            resp.innerHTML = '';
+
+            var formData = new FormData(form);
+
+            // ----- Determine correct path to send-mail.php -----
+            // If this page is in a subfolder (e.g., /pages/contact.php), adjust accordingly.
+            // By default, we assume send-mail.php is in the same folder.
+            var scriptUrl = 'send-mail.php';
+
+            // OPTIONAL: If you know the page is in a subfolder, uncomment and adjust:
+            // var path = window.location.pathname;
+            // if (path.includes('/pages/')) {
+            //     scriptUrl = '../send-mail.php';
+            // }
+
+            // ----- Perform fetch with detailed error handling -----
+            fetch(scriptUrl, {
+                method: 'POST',
+                headers: { 'X-Requested-With': 'XMLHttpRequest' },
+                body: formData
+            })
+            .then(function(response) {
+                // Check for HTTP errors (404, 500, etc.)
+                if (!response.ok) {
+                    throw new Error('HTTP ' + response.status + ': ' + response.statusText);
+                }
+                // Get raw text first so we can inspect it if JSON parsing fails
+                return response.text();
+            })
+            .then(function(text) {
+                // Try to parse the response as JSON
+                var data;
+                try {
+                    data = JSON.parse(text);
+                } catch (parseError) {
+                    // JSON parsing failed – show a preview of the response
+                    var snippet = text.substring(0, 200);
+                    resp.innerHTML = '<span style="color:#c0392b;"><i class="fa-solid fa-circle-exclamation"></i> Server returned invalid JSON. Preview: ' + snippet + '...</span>';
+                    console.error('Invalid JSON response from server:', text);
+                    return; // stop further processing
+                }
+
+                // Now handle the parsed data
+                if (data.success) {
+                    resp.innerHTML = '<span style="color:#164243;"><i class="fa-solid fa-circle-check"></i> Thank you, <strong>' + name + '</strong>! We\'ll get back to you shortly.</span>';
+                    form.reset();
+                } else {
+                    resp.innerHTML = '<span style="color:#c0392b;"><i class="fa-solid fa-circle-exclamation"></i> ' + (data.message || 'Something went wrong. Please try again.') + '</span>';
+                }
+            })
+            .catch(function(error) {
+                // This catches network errors, CORS issues, or thrown errors above
+                resp.innerHTML = '<span style="color:#c0392b;"><i class="fa-solid fa-circle-exclamation"></i> ' + error.message + '</span>';
+            })
+            .finally(function() {
+                // Re-enable the button
+                btn.disabled = false;
+                btnLabel.textContent = 'Send Message';
+            });
         });
     }
 });

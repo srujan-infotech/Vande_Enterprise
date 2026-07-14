@@ -14,12 +14,38 @@
 .services-hero::before{content:"";position:absolute;top:0;left:0;width:100%;height:6px;background:linear-gradient(90deg,#b08a3e,#e3c581,#b08a3e);background-size:200% 100%;z-index:3;animation:sShimmer 4s linear infinite}
 @keyframes sShimmer{0%{background-position:0%}100%{background-position:200%}}
 .services-hero .overlay{position:absolute;inset:0;background:linear-gradient(90deg,rgba(0,0,0,.82) 0%,rgba(0,0,0,.5) 50%,rgba(0,0,0,.18) 100%);z-index:1}
-.services-hero-text{position:absolute;top:52%;left:50%;transform:translate(-50%,-50%);text-align:center;width:100%;padding:0 20px;z-index:2}
+.services-hero-text{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);text-align:center;width:100%;padding:0 20px;z-index:2}
 .services-hero-text h1{color:#fff;font-size:5rem;font-weight:800;text-shadow:0 3px 10px rgba(0,0,0,.6);margin:0 0 14px;opacity:0;animation:sHeroIn 1s cubic-bezier(.2,.8,.2,1) .3s forwards}
 .services-hero-text p{color:rgba(255,255,255,.85);font-size:1.1rem;max-width:560px;margin:0 auto;opacity:0;animation:sHeroIn 1s cubic-bezier(.2,.8,.2,1) .6s forwards}
 @keyframes sHeroIn{from{opacity:0;transform:translateY(26px)}to{opacity:1;transform:translateY(0)}}
-@media(max-width:768px){.services-hero{height:260px}}
-@media(max-width:530px){.services-hero{height:200px}.services-hero-text h1{font-size:2rem!important}}
+
+/* ---- Hero — MOBILE RESPONSIVE (updated) ---- */
+@media(max-width:768px){
+    .services-hero{
+        height:280px;
+        padding-top:72px;      /* clears the mobile navbar so heading isn't hidden behind it */
+        box-sizing:border-box;
+    }
+    .services-hero-text{ top:50%; }
+    .services-hero-text h1{ font-size:2.1rem; margin:0; }
+    .services-hero-text p{
+        display:none !important;   /* description hidden on mobile */
+    }
+}
+@media(max-width:530px){
+    .services-hero{
+        height:230px;
+        padding-top:66px;
+    }
+    .services-hero-text h1{ font-size:1.75rem!important; }
+}
+@media(max-width:380px){
+    .services-hero{
+        height:200px;
+        padding-top:60px;
+    }
+    .services-hero-text h1{ font-size:1.5rem!important; }
+}
 
 /* ---- Breadcrumb ---- */
 .breadcrumb-strip{background:#f4f6f5;padding:13px 0;border-bottom:1px solid #e3e8e6}
@@ -223,14 +249,107 @@
 .cta-outline{display:inline-flex;align-items:center;gap:10px;background:transparent;color:#fff;padding:15px 34px;border-radius:8px;border:2px solid rgba(255,255,255,.4);font-size:.93rem;font-weight:700;text-decoration:none;transition:border-color .3s,background .3s,transform .3s}
 .cta-outline:hover{border-color:#fff;background:rgba(255,255,255,.08);color:#fff;transform:translateY(-3px)}
 
+/* ================================================================
+   GLOBAL MOBILE / TABLET RESPONSIVE — full page
+   ================================================================ */
+
+/* ---- Tablet (max 991px) ---- */
+@media(max-width:991px){
+    .sec-services{padding:70px 0 60px}
+    .svc-card-img{height:190px}
+    .svc-card-body{padding:22px 20px 22px}
+    .svc-card-title h4{font-size:1rem}
+    .svc-head-icon{width:42px;height:42px;font-size:1rem}
+    .pvd-body h2{font-size:2rem}
+}
+
+/* ---- Small tablet / large phone (max 768px) ---- */
+@media(max-width:768px){
+    .s-heading{font-size:1.85rem}
+    .s-sub{font-size:.92rem}
+
+    .sec-services{padding:55px 0 40px}
+    .svc-card-img{height:200px}
+    .svc-card-body{padding:20px 18px 20px}
+    .svc-card-body p{font-size:.88rem;line-height:1.7;margin-bottom:14px}
+    .svc-tag{font-size:.65rem;padding:3px 10px}
+
+    .sec-process{padding:45px 0 45px}
+    .proc-num{width:64px;height:64px;font-size:1.25rem;margin-bottom:14px}
+    .proc-step{margin-bottom:32px}
+    .proc-step h5{font-size:.95rem}
+    .proc-step p{font-size:.85rem}
+
+    .sec-pvd{padding:45px 0}
+    .pvd-img-wrap{min-height:240px}
+    .pvd-badge{padding:10px 16px;bottom:16px;left:16px}
+    .pvd-badge strong{font-size:1.2rem}
+    .pvd-body h2{font-size:1.6rem;margin-bottom:14px}
+    .pvd-body p{font-size:.9rem;line-height:1.75}
+    .pvd-checklist{margin:18px 0 26px;gap:11px}
+    .pvd-checklist li{font-size:.88rem}
+    .pvd-cta-btn{padding:12px 24px;font-size:.86rem;width:100%;justify-content:center}
+
+    .sec-stats{padding:44px 0}
+    .stat-box .num{font-size:2.1rem}
+    .stat-box .lbl{font-size:.78rem}
+
+    .sec-testimonials{padding:45px 0 40px}
+    .tcard{padding:26px 20px 22px}
+    .tcard p{font-size:.87rem}
+    .t-nav-btn{width:40px;height:40px;font-size:14px}
+
+    .sec-cta{padding:45px 0}
+    .sec-cta h2{font-size:1.6rem}
+    .sec-cta p{font-size:.9rem;margin-bottom:26px}
+    .cta-gold,.cta-outline{padding:12px 24px;font-size:.86rem;width:100%;justify-content:center}
+    .sec-cta .d-flex{flex-direction:column;align-items:stretch;gap:12px!important}
+}
+
+/* ---- Phone (max 576px) ---- */
 @media(max-width:576px){
+    .breadcrumb-strip{padding:10px 0}
+    .breadcrumb-strip ol{font-size:.78rem}
+
+    .s-heading{font-size:1.5rem;margin-bottom:12px}
+    .s-sub{font-size:.86rem}
+    .s-label{font-size:.68rem;letter-spacing:2px}
+
     .sec-services{padding:60px 0 50px}
+    .svc-card-img{height:180px}
+    .svc-card-title{gap:10px;margin-bottom:10px}
+    .svc-head-icon{width:38px;height:38px;font-size:.9rem;border-radius:10px}
+    .svc-card-title h4{font-size:.95rem}
+    .svc-link{font-size:.8rem}
+
     .sec-process{padding:55px 0 60px}
+    .proc-num{width:56px;height:56px;font-size:1.1rem}
+
     .sec-pvd{padding:60px 0}
+    .pvd-img-wrap{min-height:200px;border-radius:12px}
+    .pvd-body h2{font-size:1.4rem}
+    .pvd-checklist .ck{width:19px;height:19px;font-size:.58rem}
+
+    .sec-stats{padding:34px 0}
+    .stat-box .num{font-size:1.8rem}
+    .stat-box .lbl{font-size:.72rem}
+
     .sec-testimonials{padding:60px 0 50px}
+    .tcard .reviewer img{width:56px;height:56px}
+    .tcard .quote-i{font-size:1.9rem}
+
     .sec-cta{padding:55px 0}
-    .sec-cta h2{font-size:1.7rem}
-    .stat-box .num{font-size:2.2rem}
+    .sec-cta h2{font-size:1.35rem}
+    .sec-cta p{font-size:.85rem}
+}
+
+/* ---- Extra-small phone (max 380px) ---- */
+@media(max-width:380px){
+    .s-heading{font-size:1.3rem}
+    .svc-card-img{height:160px}
+    .svc-card-body{padding:16px 14px 16px}
+    .pvd-body h2{font-size:1.25rem}
+    .sec-cta h2{font-size:1.2rem}
 }
 </style>
 

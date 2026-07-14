@@ -463,37 +463,111 @@
         <div class="text-center mb-5">
             <span class="section-label">What We Do</span>
             <h3 class="section-title">Our <span class="gold-text">Services</span></h3>
-            <p class="section-subtitle">From fabrication to PVD coating, we deliver quality metal solutions for every need.</p>
+            <p class="section-subtitle">
+                From fabrication to PVD coating, we deliver quality metal solutions for every need.
+            </p>
             <div class="section-divider"></div>
         </div>
+
         <div class="swiper services-swiper">
             <div class="swiper-wrapper">
+
+                <!-- SS Fabrication -->
                 <div class="swiper-slide" style="height:auto;">
-                    <div class="service-card"><img src="assets/images/blog-image-1.jpg" alt="SS Fabrication">
-                    <div class="service-card-body"><div class="service-icon"><i class="fa-solid fa-screwdriver-wrench"></i></div><h5>SS Fabrication</h5></div></div>
+                   <a href="services.php" class="service-link">
+                        <div class="service-card">
+                            <img src="assets/images/blog-image-1.jpg" alt="SS Fabrication">
+                            <div class="service-card-body">
+                                <div class="service-icon">
+                                    <i class="fa-solid fa-screwdriver-wrench"></i>
+                                </div>
+                                <h5>SS Fabrication</h5>
+                            </div>
+                        </div>
+                    </a>
                 </div>
+
+                <!-- MS Fabrication -->
                 <div class="swiper-slide" style="height:auto;">
-                    <div class="service-card"><img src="assets/images/blog-image-2.jpg" alt="MS Fabrication">
-                    <div class="service-card-body"><div class="service-icon"><i class="fa-solid fa-gear"></i></div><h5>MS Fabrication</h5></div></div>
+                   <a href="services.php" class="service-link">
+                        <div class="service-card">
+                            <img src="assets/images/blog-image-2.jpg" alt="MS Fabrication">
+                            <div class="service-card-body">
+                                <div class="service-icon">
+                                    <i class="fa-solid fa-gear"></i>
+                                </div>
+                                <h5>MS Fabrication</h5>
+                            </div>
+                        </div>
+                    </a>
                 </div>
+
+                <!-- PVD Coating -->
                 <div class="swiper-slide" style="height:auto;">
-                    <div class="service-card"><img src="assets/images/blog-image-3.jpg" alt="PVD Coating">
-                    <div class="service-card-body"><div class="service-icon"><i class="fa-solid fa-spray-can-sparkles"></i></div><h5>PVD Coating</h5></div></div>
+                   <a href="services.php" class="service-link">
+                        <div class="service-card">
+                            <img src="assets/images/blog-image-3.jpg" alt="PVD Coating">
+                            <div class="service-card-body">
+                                <div class="service-icon">
+                                    <i class="fa-solid fa-spray-can-sparkles"></i>
+                                </div>
+                                <h5>PVD Coating</h5>
+                            </div>
+                        </div>
+                    </a>
                 </div>
+
+                <!-- Custom Furniture -->
                 <div class="swiper-slide" style="height:auto;">
-                    <div class="service-card"><img src="assets/images/blog-image-2.jpg" alt="Custom Furniture">
-                    <div class="service-card-body"><div class="service-icon"><i class="fa-solid fa-couch"></i></div><h5>Custom Furniture</h5></div></div>
+                   <a href="services.php" class="service-link">
+                        <div class="service-card">
+                            <img src="assets/images/blog-image-2.jpg" alt="Custom Furniture">
+                            <div class="service-card-body">
+                                <div class="service-icon">
+                                    <i class="fa-solid fa-couch"></i>
+                                </div>
+                                <h5>Custom Furniture</h5>
+                            </div>
+                        </div>
+                    </a>
                 </div>
+
+                <!-- Gates & Railings -->
                 <div class="swiper-slide" style="height:auto;">
-                    <div class="service-card"><img src="assets/images/blog-image-1.jpg" alt="Gates &amp; Railings">
-                    <div class="service-card-body"><div class="service-icon"><i class="fa-solid fa-border-all"></i></div><h5>Gates &amp; Railings</h5></div></div>
+                    <a href="services.php" class="service-link">
+                        <div class="service-card">
+                            <img src="assets/images/blog-image-1.jpg" alt="Gates & Railings">
+                            <div class="service-card-body">
+                                <div class="service-icon">
+                                    <i class="fa-solid fa-border-all"></i>
+                                </div>
+                                <h5>Gates &amp; Railings</h5>
+                            </div>
+                        </div>
+                    </a>
                 </div>
+
             </div>
         </div>
+
         <div class="services-nav">
-            <button class="s-nav-btn prev" id="sPrev" aria-label="Previous"><svg width="35" height="22" viewBox="0 0 35 22" fill="none"><path fill-rule="evenodd" clip-rule="evenodd" d="M24 0.585815L34.4142 10.9999L24 21.4142L22.5858 20L30.5857 12L0 12L2.38419e-07 10L30.5858 10L22.5858 2.00003L24 0.585815Z"/></svg></button>
-            <div class="swiper-pagination" id="sPagination" style="position:static;width:auto;flex:1;max-width:200px;"></div>
-            <button class="s-nav-btn next" id="sNext" aria-label="Next"><svg width="35" height="22" viewBox="0 0 35 22" fill="none"><path fill-rule="evenodd" clip-rule="evenodd" d="M24 0.585815L34.4142 10.9999L24 21.4142L22.5858 20L30.5857 12L0 12L2.38419e-07 10L30.5858 10L22.5858 2.00003L24 0.585815Z"/></svg></button>
+            <button class="s-nav-btn prev" id="sPrev" aria-label="Previous">
+                <svg width="35" height="22" viewBox="0 0 35 22" fill="none">
+                    <path fill-rule="evenodd" clip-rule="evenodd"
+                        d="M24 0.585815L34.4142 10.9999L24 21.4142L22.5858 20L30.5857 12L0 12L2.38419e-07 10L30.5858 10L22.5858 2.00003L24 0.585815Z"/>
+                </svg>
+            </button>
+
+            <div class="swiper-pagination" id="sPagination"
+                style="position:static;width:auto;flex:1;max-width:200px;">
+            </div>
+
+            <button class="s-nav-btn next" id="sNext" aria-label="Next">
+                <svg width="35" height="22" viewBox="0 0 35 22" fill="none">
+                    <path fill-rule="evenodd" clip-rule="evenodd"
+                        d="M24 0.585815L34.4142 10.9999L24 21.4142L22.5858 20L30.5857 12L0 12L2.38419e-07 10L30.5858 10L22.5858 2.00003L24 0.585815Z"/>
+                </svg>
+            </button>
         </div>
     </div>
 </section>
